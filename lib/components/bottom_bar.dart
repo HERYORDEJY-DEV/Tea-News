@@ -23,7 +23,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       opacity: 1,
       currentIndex: currentIndex,
       onTap: changePage,
-      borderRadius: BorderRadius.vertical(
+      borderRadius: const BorderRadius.vertical(
         top: Radius.circular(16),
       ),
       elevation: 8,
@@ -32,29 +32,33 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       hasInk: true, //new, gives a cute ink effect
       inkColor: Colors.black12, //optional, uses theme color if not specified
       items: <BubbleBottomBarItem>[
-        BubbleBottomBarItem(
+        const BubbleBottomBarItem(
           backgroundColor: Colors.black,
           icon: Icon(
             Icons.home,
+            size: 30,
             color: Colors.black,
           ),
           activeIcon: Icon(
             Icons.home_outlined,
             color: Colors.white,
+            size: 20,
           ),
           title: Text(
             "Home",
             style: TextStyle(color: Colors.white),
           ),
         ),
-        BubbleBottomBarItem(
+        const BubbleBottomBarItem(
           backgroundColor: Colors.black,
           icon: Icon(
             Icons.search,
+            size: 30,
             color: Colors.black,
           ),
           activeIcon: Icon(
             Icons.search,
+            size: 20,
             color: Colors.white,
           ),
           title: Text(
@@ -62,15 +66,17 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
             style: TextStyle(color: Colors.white),
           ),
         ),
-        BubbleBottomBarItem(
+        const BubbleBottomBarItem(
           backgroundColor: Colors.black,
           icon: Icon(
             Icons.bookmark,
             color: Colors.black,
+            size: 30,
           ),
           activeIcon: Icon(
             Icons.bookmark_outline,
             color: Colors.white,
+            size: 20,
           ),
           title: Text(
             "Bookmarks",
@@ -79,14 +85,12 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         ),
         BubbleBottomBarItem(
           showBadge: false,
-          backgroundColor: Colors.green,
+          backgroundColor: Colors.black,
           icon: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                      blurRadius: 5,
-                      color: Colors.grey.shade700,
-                      offset: Offset(0, 1)),
+                      blurRadius: 5, color: Colors.grey, offset: Offset(0, 1)),
                 ],
                 image: DecorationImage(
                     image: AssetImage('lib/assets/images/yusuf2.png'),
@@ -95,11 +99,23 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
             width: 30,
             height: 30,
           ),
-          activeIcon: Icon(
-            Icons.menu,
-            color: Colors.green,
+          activeIcon: Container(
+            decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                      blurRadius: 5, color: Colors.grey, offset: Offset(0, 1)),
+                ],
+                image: DecorationImage(
+                    image: AssetImage('lib/assets/images/yusuf2.png'),
+                    fit: BoxFit.cover),
+                shape: BoxShape.circle),
+            width: 30,
+            height: 30,
           ),
-          title: Text('tt'),
+          title: const Text(
+            "Profile",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ],
     );

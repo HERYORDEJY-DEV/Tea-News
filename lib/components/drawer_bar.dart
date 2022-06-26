@@ -3,21 +3,30 @@ import 'package:flutter/material.dart';
 class CustomDrawerBar extends StatefulWidget {
   final scaffoldState;
 
-  const CustomDrawerBar({Key? key, required this.scaffoldState})
+  final VoidCallback closeDrawer;
+
+  const CustomDrawerBar(
+      {Key? key, required this.scaffoldState, required this.closeDrawer})
       : super(key: key);
 
   @override
   State<CustomDrawerBar> createState() => _CustomDrawerBarState();
 }
 
-TextStyle titleStyle = TextStyle(
+TextStyle titleStyle = const TextStyle(
   color: Colors.white,
   fontSize: 50,
   fontWeight: FontWeight.bold,
 );
 
-TextStyle itemTitleStyle = TextStyle(
+TextStyle itemTitleStyle = const TextStyle(
   color: Colors.white,
+  fontSize: 20,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle logoutTitleStyle = const TextStyle(
+  color: Colors.black,
   fontSize: 20,
   fontWeight: FontWeight.bold,
 );
@@ -36,7 +45,7 @@ class _CustomDrawerBarState extends State<CustomDrawerBar> {
               style: titleStyle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           TextButton(
@@ -46,7 +55,7 @@ class _CustomDrawerBarState extends State<CustomDrawerBar> {
               style: itemTitleStyle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextButton(
@@ -56,7 +65,7 @@ class _CustomDrawerBarState extends State<CustomDrawerBar> {
               style: itemTitleStyle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextButton(
@@ -66,7 +75,7 @@ class _CustomDrawerBarState extends State<CustomDrawerBar> {
               style: itemTitleStyle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextButton(
@@ -76,7 +85,7 @@ class _CustomDrawerBarState extends State<CustomDrawerBar> {
               style: itemTitleStyle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           TextButton(
@@ -86,22 +95,38 @@ class _CustomDrawerBarState extends State<CustomDrawerBar> {
               style: itemTitleStyle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             //  ,
             height: 20,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: widget.closeDrawer,
             icon: Container(
-                width: 50,
-                height: 50,
-                decoration: BoxDecoration(
+                width: 70,
+                height: 70,
+                decoration: const BoxDecoration(
+                    color: Colors.white,
                     borderRadius: BorderRadius.all(Radius.circular((50)))),
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_back,
-                  color: Colors.white,
+                  color: Colors.black,
                 )),
           ),
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: 70,
+                decoration: const BoxDecoration(color: Colors.white),
+                child: Center(
+                  child: Text(
+                    'Logout',
+                    style: logoutTitleStyle,
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
